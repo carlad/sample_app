@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0.rc1'
+gem 'bootstrap-sass', '2.1'
 gem 'pg', '0.15.1'
 
 # Bundle edge Rails instead:
