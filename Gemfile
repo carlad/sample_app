@@ -22,6 +22,7 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'rb-inotify', '0.9.0'
   gem 'libnotify', '0.5.9'
+  gem 'factory_girl_rails', '4.2.1'
 end 
 
 gem 'sass-rails', '4.0.0.rc1'

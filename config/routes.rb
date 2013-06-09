@@ -1,9 +1,8 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
-
+  resources :users
   root to: 'static_pages#home'
 
-  get '/signup',  to: 'users#new'
+  get '/signup',  to: 'users#new', via: 'get'
   
   get '/help', to: 'static_pages#help'
   get '/about', to: 'static_pages#about'
