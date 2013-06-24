@@ -64,6 +64,15 @@ describe "UserPages" do
       visit edit_user_path(user)
     end
 
+    describe "admin attribute" do
+       it "should not editable through the web" do
+          User.should_receive(:find).at_least(:once).and_return(user)
+          user.admin.should_not be_true
+          patch user_path(user), user: { admin: true }
+          user.admin.should_not be_true
+      end
+    end
+
     describe "page" do
       it { should have_content("Update your profile") }
       it { should have_title("Edit user") }
@@ -117,10 +126,10 @@ describe "UserPages" do
 
     describe "with valid information" do
       before do
-        fill_in "Name",         with: "Example User"
-        fill_in "Email",        with: "user@example.com"
-        fill_in "Password",     with: "foobar"
-        fill_in "Confirmation", with: "foobar"
+        fill_in "Name",             with: "Example User"
+        fill_in "Email",            with: "user@example.com"
+        fill_in "Password",         with: "foobar"
+        fill_in "Confirm Password", with: "foobar"
       end
 
       it "should create a user" do
